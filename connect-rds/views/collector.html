@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+     <head>
+         <title>처리장 정보</title>
+        <link rel = "stylesheet" type = 'text/css' href = "css/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src = "script/main.js"></script>
+     </head>
+
+     <body>
+
+        <div id = "page-wrapper">
+
+            <header id = "main-header">
+                <hgroup>
+                    <a href = "main">
+                        <h1 class = "master-title">APPLE QUICK</h1>
+                        <h2 class = "master-description">Energy-Plus Quick</h2>
+                    </a>
+                </hgroup>
+            </header>
+
+            <nav id = "main-navigation">
+                <div class = "pull-left">
+                    <ul class = "outer-menu">
+                        <a href = "main">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">홈</span>
+                            </li>
+                        </a>
+                        <a href = "user_id">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">ID</span>
+                            </li>
+                        </a>
+                        <a href = "user">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">User</span>
+                            </li>
+                        </a>
+                        <a href = "record">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">Record</span>
+                            </li>
+                        </a>
+                        <a href = "collector">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">Collector</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id = "content">
+                
+                    <div class="search-box">
+                        <form action = "/collectorSearch">
+                            <input type="text" class="search-txt" name="searchText" placeholder="처리장 번호를 입력해 주세요.">
+                            <input type="submit" class="search-btn" value = "">
+                        </form>
+                    </div>
+
+                <% if (collector != null && collector.length > 0){ %>
+                    <ul>
+                        <% for ( var i = 0; i < collector.length; i++){ %>
+                            <li>
+                                <div class="search-result">
+                                    <p class="search-desc">처리장 번호 : <%=collector[i].collector_id%></p>
+                                    <p class="search-desc">처리일 : <%=collector[i].collection_date%></p>
+                                    <p class="search-desc">현재 용량 : <%=collector[i].required%>L</p>
+                                    <p class="search-desc">장소 : <%=collector[i].location%></p>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <% }else{ %>
+                        <p></p>
+                <% } %>
+
+            </div>
+
+        </div>
+     
+     </body>
+
+</html>

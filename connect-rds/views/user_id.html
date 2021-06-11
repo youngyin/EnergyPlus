@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+     <head>
+        <title>기록 정보</title>
+        <link rel = "stylesheet" type = 'text/css' href = "css/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src = "script/main.js"></script>
+     </head>
+
+     <body>
+
+        <div id = "page-wrapper">
+
+            <header id = "main-header">
+                <hgroup>
+                    <a href = "main">
+                        <h1 class = "master-title">APPLE QUICK</h1>
+                        <h2 class = "master-description">Energy-Plus Quick</h2>
+                    </a>
+                </hgroup>
+            </header>
+
+            <nav id = "main-navigation">
+                <div class = "pull-left">
+                    <ul class = "outer-menu">
+                        <a href = "main">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">홈</span>
+                            </li>
+                        </a>
+                        <a href = "user_id">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">ID</span>
+                            </li>
+                        </a>
+                        <a href = "user">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">User</span>
+                            </li>
+                        </a>
+                        <a href = "record">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">Record</span>
+                            </li>
+                        </a>
+                        <a href = "collector">
+                            <li class = "outer-menu-item">
+                                <span class = "menu-title">Collector</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id = "content">
+                
+                    <div class="search-box">
+                        <form action = "/idSearch">
+                            <input type="text" class="search-txt" name="searchText" placeholder="아이디를 입력해 주세요.">
+                            <input type="submit" class="search-btn" value = "">
+                        </form>
+                    </div>
+
+                <% if (record != null && record.length > 0){ %>
+
+                    <div>
+                        <div class = "search-result">
+                            <% var result = 0 %>
+                            <% for ( var i = 0; i < record.length; i++){ %>
+                                <% result = result + record[i].volume * 500 %>
+                           <% } %>
+                            <p class = "search-desc">총 적립금액 : <%=result%>\</p> 
+                        </div>
+                    </div>
+
+                    <ul>
+                        <% for ( var i = 0; i < record.length; i++){ %>
+                            <li>
+                                <div class="search-result">
+                                    <p class="search-desc">번호 : <%=record[i].id%></p>
+                                    <p class="search-desc">처리 용량 : <%=record[i].volume%>L</p>
+                                    <p class="search-desc">적립일: <%=record[i].discharge_date%></p>
+                                    <p class="search-desc">적립금: <%=record[i].volume * 500%>\</p>
+                                    <p class="search-desc">처리장 번호: <%=record[i].collector_id%></p>
+                                    <p class="search-desc">주유소 번호: <%=record[i].gasstation_id%></p>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                    <% }else{ %>
+                        <p class = "err-msg"></p>
+                <% } %>
+
+            </div>
+
+        </div>
+     
+     </body>
+
+</html>

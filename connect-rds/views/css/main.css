@@ -1,0 +1,135 @@
+*{
+    margin : 0; padding: 0;
+    font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+}
+
+a { text-decoration : none; }
+li { list-style: none; }
+
+#content {
+    overflow: hidden;
+    margin: 100px;
+    border-radius: 5px;
+}
+
+body{
+    width: 960px; margin : 0 auto;
+    background: #e6e6e6; 
+}
+
+#page-wrapper{
+    background: white;
+    margin: 40px; padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+#main-header {padding: 40px 50px;}
+
+.master-title{
+    font-size: 30px;
+    color: #181818;
+}
+.master-description{
+    font-size: 15px; font-weight: 500;
+    color: #383838;
+}
+
+#main-navigation{
+    border-top: 2px solid #C8C8C8;
+    border-bottom: 2px solid #C8C8C8;
+    margin-bottom: 20px;
+    height: 40px;
+    padding-top: 5px;
+    padding-bottom:5px;
+    box-shadow: 0px 0px .5px 0px #b7c0bf;
+}
+
+.outer-menu-item{
+    float: left;
+    position: relative;
+}
+.outer-menu-item:hover{
+    background: black;
+    color: white;
+}
+.menu-title{
+    display: block;
+    height: 30px; line-height: 30px;
+    text-align: center;
+    padding: 5px 30px;
+}
+
+.search-box{
+  padding: 10px;
+  position: absolute;
+  top: 290px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #b7c0bf;
+  border-radius: 30px;
+  transition: 0.4s;
+  box-shadow: 0px 0px .5px 1px #b7c0bf;
+  width: 282px;
+}
+
+.search-btn{
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b7c0bf;
+}
+
+.search-txt{
+  display: flex;
+  width: 240px;
+  padding: 0 6px;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .4s;
+}
+
+#main-footer{
+    border-top: 2px, solid, rgb(#c8c8c8);
+}
+
+.search-desc {
+    margin: 0 0 10px 0;
+    padding: 0;
+    padding-top: 10px;
+  }
+  
+  .search-form {
+    height: 45px;
+  }
+  
+  .search-title {
+    font-family: Trebuchet MS;
+    font-weight: normal;
+    margin: 15px 0 0 0;
+    padding: 0;
+  }
+  
+  .search-result {
+    border: solid 1px lightgray;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 15px 0 15px;
+    margin-bottom: 10px;
+  }
+
+  #information{
+    margin-bottom: 10px;
+  }
