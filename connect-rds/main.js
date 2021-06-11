@@ -163,7 +163,7 @@ app.get('/collectorSearch', (req, res) =>{
   }
 
 })
-/*
+
 // 2. 사용자 아이디로 기록 검색하기
 app.get('/idSearch', (req, res, next)=>{
 
@@ -182,7 +182,44 @@ app.get('/idSearch', (req, res, next)=>{
 
   }
 
-})*/
+})
+
+/*
+앱이 사용하는 api
+*/
+
+// 회원 가입
+app.get('/api/signup/:user_id/:user_pw/:phone', (req, res, next)=>{
+  const mquery = 
+  `INSERT INTO ${userDB} (user_id, user_pw, phone) 
+  values ("${req.params.user_id}", "${req.params.user_pw}", "${req.params.phone}")`
+
+  connection.query(mquery, (err, rows, fields) => {
+    res.send(rows); // 결과를 출력합니다!
+  });
+})
+
+// 로그인
+app.get('/api/login/:user_id/:user_pw/:phone', (req, res, next)=>{
+  const mquery = 
+  `Select count(*) from ${userDB} 
+  where 
+  user_id = "${req.params.user_id}" and
+  user_pw = "${req.params.user_pw}" and
+  phone = "${req.params.phone}"`
+
+  connection.query(mquery, (err, rows, fields) => {
+    res.send(rows); // 결과를 출력합니다!
+  });
+})
+
+// 2. 사용자 아이디로 기록 검색하기
+app.get('/api/searchrecordbyuser/:user_id', (req, res, next)=>{
+  const mquery = `select volume, discharge_date from record where user_id = "${req.params.user_id}";`;
+  connection.query(mquery, (err, rows, fields) => {
+    res.send(rows); // 결과를 출력합니다!
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
